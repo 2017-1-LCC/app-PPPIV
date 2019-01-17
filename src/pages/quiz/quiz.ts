@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { QuizServiceProvider } from '../../providers/quiz-service/quiz-service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -22,14 +21,14 @@ export class QuizPage {
     public quizServiceProvider: QuizServiceProvider
     ) {
       this.quizForm = formBuilder.group({
-        onequestion: [], 
-        twoquestion: [],
-        threequestion: [], 
-        fourquestion: [],
-        fivequestion: [], 
-        sixquestion: [],
-        sevenquestion: [], 
-        eightquestion: []
+        onequestion: ['', [Validators.required]], 
+        twoquestion: ['', [Validators.required]],
+        threequestion: ['', [Validators.required]], 
+        fourquestion: ['', [Validators.required]],
+        fivequestion: ['', [Validators.required]], 
+        sixquestion: ['', [Validators.required]],
+        sevenquestion: ['', [Validators.required]], 
+        eightquestion: ['', [Validators.required]]
       });
   }
 
@@ -42,8 +41,10 @@ export class QuizPage {
     });
   }
 
-  saveQuiz(){
+  public saveQuiz(){
     this.quizServiceProvider.save(this.question);
+    this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso");
+    this.quizForm.reset();
   }
 
 }

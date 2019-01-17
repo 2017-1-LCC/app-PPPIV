@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/observable/of';
-
+import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Quiz{
   uid:string;
@@ -18,30 +14,20 @@ export interface Quiz{
   eightquestion: boolean;
 }
 
-export interface User{
-  email:string;  
-  name:string;
-  uid:string;
-}
 @Injectable()
 export class QuizServiceProvider {
   
-  user$:Observable<User>
+  userUid:any;
 
-  constructor(public fireStore:AngularFirestore,
-    private fireAuth: AngularFireAuth)
-  {  
-    this.user$ = this.fireAuth.authState.switchMap(user => (user) ? this.fireStore.doc<User>(`users/${user.uid}`).valueChanges() :Observable.of(null));
-
+  constructor(private afAuth: AngularFireAuth,
+    private afStore:AngularFirestore){
+    this.getUid();
   }
-  public save( question:any ){
-    this.addQuestion(question, this.user$);
-  }
-
-  public addQuestion( question:any, user:any ){
-    const ref: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${user.uid}`);
+  
+  public save( question:any ) { 
+    const quizId = this.afStore.createId();
     const quizAdd: Quiz = {
-      uid: "fsdfaf",
+      uid: quizId,
       onequestion: question.one,
       twoquestion: question.two,
       threequestion: question.three,
@@ -51,6 +37,18 @@ export class QuizServiceProvider {
       sevenquestion: question.seven,
       eightquestion: question.eight
     };
-    return ref.set(quizAdd);
+    
+    return this.afStore.collection('users').doc(this.userUid).collection<any>('quiz').doc(quizId).set(quizAdd);
   }
+
+  private getUid(){
+    this.afAuth.authState.subscribe(user => {
+      if (!user){
+        this.userUid = null;
+        return;
+      }
+      this.userUid = user.uid;
+    })
+  }
+
 }
