@@ -42,7 +42,7 @@ export class LoginServiceProvider {
     this.toastCall(message);
   }
 
-  toastCall(message:string): void{
+  toastCall(message: string): void{
     let toast = this.toastCtrl.create({
       message: message,
       position: 'top',

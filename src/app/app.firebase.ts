@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyCk7JCB99ZFaMyY4FKl3KXNy9G14bsVfT4",
-    authDomain: "crud-com-firebase-a3218.firebaseapp.com",
-    databaseURL: "https://crud-com-firebase-a3218.firebaseio.com",
-    projectId: "crud-com-firebase-a3218",
-    storageBucket: "crud-com-firebase-a3218.appspot.com",
-    messagingSenderId: "219802840841"
+    apiKey: "AIzaSyDPAITyDsvtQff9oUxDHF4_mzOiJHeYoYU",
+    authDomain: "ppp4-testelucas.firebaseapp.com",
+    databaseURL: "https://ppp4-testelucas.firebaseio.com",
+    projectId: "ppp4-testelucas",
+    storageBucket: "ppp4-testelucas.appspot.com",
+    messagingSenderId: "698958250182"
 }

@@ -16,4 +16,77 @@
 
 <ion-content padding>
 
+  <form [formGroup]="quizForm" (ngSubmit)="saveQuiz()">
+      
+    <ion-item>
+      <ion-label>1 - Local de Nascimento?</ion-label>
+      <ion-input [(ngModel)]="question.one" type="text" name="onequestion" formControlName="onequestion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>2 - Cidade onde Mora?</ion-label>
+      <ion-input [(ngModel)]="question.two" type="text" name="twoquestion" formControlName="twoquestion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>3 - Qual disciplina você mais gosta?</ion-label>
+      <ion-select [(ngModel)]="question.three" type="text" formControlName="threequestion" name="threequestion" interface="popover">
+        <ion-option value="Português">Português</ion-option>
+        <ion-option value="Matemática">Matemática</ion-option>
+        <ion-option value="Física">Física</ion-option>
+        <ion-option value="Química">Química</ion-option>
+        <ion-option value="Ed. física">Ed. física</ion-option>
+        <ion-option value="Outras">Outras</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>4 - Gosta de ler?</ion-label>
+      <ion-select [(ngModel)]="question.four" formControlName="fourquestion" name="fourquestion" interface="popover">
+        <ion-option value=true>Sim</ion-option>
+        <ion-option value=false>Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
+        <ion-select [(ngModel)]="question.five" formControlName="fivequestion" name="fivequestion" interface="popover">
+          <ion-option value="Facebook">Facebook</ion-option>
+          <ion-option value="Instagram">Instagram</ion-option>
+          <ion-option value="Whatsapp">Whatsapp</ion-option>
+          <ion-option value="Twitter">Twitter</ion-option>
+          <ion-option value="Não">Não Utilizo</ion-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item>
+      <ion-label>6 - O que você pretende fazer quando terminar o ensino médio?</ion-label>
+      <ion-select [(ngModel)]="question.six" formControlName="sixquestion" name="sixquestion" interface="popover">
+        <ion-option value="Faculdade">Faculdade</ion-option>
+        <ion-option value="Tecnico">Curso Técnico</ion-option>
+        <ion-option value="Trabalhar">Trabalhar</ion-option>
+        <ion-option value="Não Decidi">Não Decidi</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>7 - Você conhece o curso de LCC?</ion-label>
+      <ion-select [(ngModel)]="question.seven" formControlName="sevenquestion" name="sevenquestion" interface="popover">
+        <ion-option value=true>Sim</ion-option>
+        <ion-option value=false>Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>8 - Gosta de tecnologia?</ion-label>
+      <ion-select [(ngModel)]="question.eight" formControlName="eightquestion" name="eightquestion" interface="popover">
+        <ion-option value=true>Sim</ion-option>
+        <ion-option value=false>Não</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button type="submit">Salvar questionario</button>
+  
+  </form>
+
 </ion-content>
