@@ -11,8 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class QuizPage {
 
-  public question: any = {};
-  quizForm: FormGroup;
+  private question: any = {};
+  private quizForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,9 +42,17 @@ export class QuizPage {
   }
 
   public saveQuiz(){
-    this.quizServiceProvider.save(this.question);
-    this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso");
-    this.quizForm.reset();
+
+    //const formValue = this.quizForm.value;
+    
+    //if (!formValue){
+    //  console.log("erro")
+    //} else {
+      this.quizServiceProvider.save(this.question);
+      this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso");
+      this.quizForm.reset();
+    //}
+
   }
 
 }

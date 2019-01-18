@@ -85,7 +85,7 @@
       </ion-select>
     </ion-item>
 
-    <button ion-button type="submit" >Salvar questionario</button>
+    <button ion-button type="submit" [disabled]="quizForm.invalid" >Salvar questionario</button>
   
   </form>
 

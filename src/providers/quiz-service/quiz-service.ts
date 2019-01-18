@@ -4,14 +4,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Quiz{
   uid:string;
-  onequestion: string;
-  twoquestion: string;
-  threequestion: string;
-  fourquestion: boolean;
-  fivequestion: string;
-  sixquestion: string;
-  sevenquestion: boolean;
-  eightquestion: boolean;
+  nascimento: string;
+  mora: string;
+  disciplinaPreferida: string;
+  gostaLer: boolean;
+  redeSocial: string;
+  planosFuturos: string;
+  conheceLCC: boolean;
+  gostaTecnologia: boolean;
 }
 
 @Injectable()
@@ -28,14 +28,14 @@ export class QuizServiceProvider {
     const quizId = this.afStore.createId();
     const quizAdd: Quiz = {
       uid: quizId,
-      onequestion: question.one,
-      twoquestion: question.two,
-      threequestion: question.three,
-      fourquestion: question.four,
-      fivequestion: question.five,
-      sixquestion: question.six,
-      sevenquestion: question.seven,
-      eightquestion: question.eight
+      nascimento: question.one,
+      mora: question.two,
+      disciplinaPreferida: question.three,
+      gostaLer: question.four,
+      redeSocial: question.five,
+      planosFuturos: question.six,
+      conheceLCC: question.seven,
+      gostaTecnologia: question.eight
     };
     
     return this.afStore.collection('users').doc(this.userUid).collection<any>('quiz').doc(quizId).set(quizAdd);
