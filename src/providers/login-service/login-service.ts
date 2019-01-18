@@ -39,13 +39,13 @@ export class LoginServiceProvider {
         break;
       }
     }
-    this.toastCall(message);
+    this.toastCall(message, "top");
   }
 
-  toastCall(message: string): void{
+  toastCall(message: string, position: string): void{
     let toast = this.toastCtrl.create({
       message: message,
-      position: 'top',
+      position: position,
       showCloseButton: true,
       closeButtonText: "ok"
     });
