@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { QuizServiceProvider } from '../../providers/quiz-service/quiz-service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -12,8 +11,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class QuizPage {
 
-  public question: any = {};
-  quizForm: FormGroup;
+  private question: any = {};
+  private quizForm: FormGroup;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -22,14 +21,14 @@ export class QuizPage {
     public quizServiceProvider: QuizServiceProvider
     ) {
       this.quizForm = formBuilder.group({
-        onequestion: [], 
-        twoquestion: [],
-        threequestion: [], 
-        fourquestion: [],
-        fivequestion: [], 
-        sixquestion: [],
-        sevenquestion: [], 
-        eightquestion: []
+        onequestion: ['', [Validators.required]], 
+        twoquestion: ['', [Validators.required]],
+        threequestion: ['', [Validators.required]], 
+        fourquestion: ['', [Validators.required]],
+        fivequestion: ['', [Validators.required]], 
+        sixquestion: ['', [Validators.required]],
+        sevenquestion: ['', [Validators.required]], 
+        eightquestion: ['', [Validators.required]]
       });
   }
 
@@ -42,8 +41,18 @@ export class QuizPage {
     });
   }
 
-  saveQuiz(){
-    this.quizServiceProvider.save(this.question);
+  public saveQuiz(){
+
+    //const formValue = this.quizForm.value;
+    
+    //if (!formValue){
+    //  console.log("erro")
+    //} else {
+      this.quizServiceProvider.save(this.question);
+      this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso");
+      this.quizForm.reset();
+    //}
+
   }
 
 }
