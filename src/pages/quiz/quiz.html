@@ -46,19 +46,27 @@
         <ion-option value=true>Sim</ion-option>
         <ion-option value=false>Não</ion-option>
       </ion-select>
+    </ion-item> 
+
+    <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
+    
+    <ion-item >
+      <ion-label>facebook</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[0].status" formControlName="fivequestion" color="dark" ></ion-checkbox>
     </ion-item>
-    
-    <ion-item>
-        <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
-        <ion-select [(ngModel)]="question.five" formControlName="fivequestion" name="fivequestion" interface="popover">
-          <ion-option value="Facebook">Facebook</ion-option>
-          <ion-option value="Instagram">Instagram</ion-option>
-          <ion-option value="Whatsapp">Whatsapp</ion-option>
-          <ion-option value="Twitter">Twitter</ion-option>
-          <ion-option value="Não">Não Utilizo</ion-option>
-        </ion-select>
-      </ion-item>
-    
+    <ion-item >
+      <ion-label>Instagram</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[1].status" formControlName="fivequestion" color="dark" ></ion-checkbox>
+    </ion-item>
+    <ion-item >
+      <ion-label>whatsapp</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[2].status" formControlName="fivequestion" color="dark" ></ion-checkbox>
+    </ion-item>
+    <ion-item >
+      <ion-label>Nenhuma</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[3].status" formControlName="fivequestion" color="dark" ></ion-checkbox>
+    </ion-item>
+
     <ion-item>
       <ion-label>6 - O que você pretende fazer quando terminar o ensino médio?</ion-label>
       <ion-select [(ngModel)]="question.six" formControlName="sixquestion" name="sixquestion" interface="popover">
@@ -84,9 +92,9 @@
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
-
-    <button ion-button type="submit" [disabled]="quizForm.invalid" >Salvar questionario</button>
-  
+    <div text-center>
+      <button ion-button type="submit" [disabled]="quizForm.invalid" >Salvar questionario</button>
+    </div>
   </form>
 
 </ion-content>
