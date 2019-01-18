@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class QuizPage {
   private question: any = {};
   private quizForm: FormGroup;
+  private questionFive = [];
 
   constructor(
     public navCtrl: NavController,
@@ -25,11 +26,18 @@ export class QuizPage {
       twoquestion: ["", [Validators.required]],
       threequestion: ["", [Validators.required]],
       fourquestion: ["", [Validators.required]],
-      fivequestion: [, [Validators.required]],
+      fivequestion: ["", [Validators.required]],
       sixquestion: ["", [Validators.required]],
       sevenquestion: ["", [Validators.required]],
       eightquestion: ["", [Validators.required]]
     });
+
+    this.questionFive = [
+    { name:"facebook", status: false },
+    { name:"Instagram", status: false },
+    { name:"Whatsapp", status: false},
+    { name:"Nenhuma", status: false }
+    ];
   }
 
   public logout() {
@@ -46,6 +54,7 @@ export class QuizPage {
 
   public saveQuiz() {
 
+    this.question.five = this.questionFive;
     this.quizServiceProvider.save(this.question);
     this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso", "middle");
     this.quizForm.reset();
