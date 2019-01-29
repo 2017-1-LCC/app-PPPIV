@@ -1,16 +1,9 @@
-// http://ionicframework.com/docs/theming/
+@font-face { font-family: 'roboto-light'; src:url('../assets/fonts/Roboto-Light.ttf') format('truetype'); }
 
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+#form ion-input, #form ion-select { border: thin solid #d2d3d4; width: 100%; border-radius: 50px; height: 30px; background-color: #fff; }
+#form ion-input input { margin: 6px 8px; font-family: roboto-light; }
+#form ion-select { max-width: 100%; padding: 0; padding-left: 7px; padding-top: 4px; font-family: roboto-light;}
+#form ion-select .select-icon { width: 25px; height: 21px;}
+#form ion-item { padding-left: 5px; background-color: transparent; }
+#form ion-item .item-inner { padding-right: 5px; }
+#form .item .item-inner { border-bottom: none !important; box-shadow: none !important; }
