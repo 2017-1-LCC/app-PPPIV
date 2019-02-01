@@ -12,6 +12,8 @@ import { FIREBASE_CONFIG } from './app.firebase';
 import { MyApp } from './app.component';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { Loading } from '../providers/util/loading';
+import { Toast } from '../providers/util/toast';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginServiceProvider,
-    QuizServiceProvider
+    QuizServiceProvider,
+    Loading,
+    Toast
   ]
 })
 export class AppModule {}
