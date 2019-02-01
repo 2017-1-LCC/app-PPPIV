@@ -12,6 +12,9 @@ export interface Quiz{
   planosFuturos: string;
   conheceLCC: boolean;
   gostaTecnologia: boolean;
+  nomeAluno:string;
+  nomeEscola:string;
+  userUid:string;
 }
 
 @Injectable()
@@ -35,10 +38,18 @@ export class QuizServiceProvider {
       redeSocial: question.five,
       planosFuturos: question.six,
       conheceLCC: question.seven,
-      gostaTecnologia: question.eight
+      gostaTecnologia: question.eight,
+      nomeAluno: question.studentName,
+      nomeEscola:question.schoolName,
+      userUid: question.user
     };
     
-    return this.afStore.collection('users').doc(this.userUid).collection<any>('quiz').doc(quizId).set(quizAdd);
+    return this.afStore.collection<any>('quiz')
+      .add(quizAdd)
+  }
+
+  public list(uid) {
+    return this.afStore.collection('quiz', ref => ref.where('userUid','==',uid)).valueChanges();
   }
 
   private getUid(){
