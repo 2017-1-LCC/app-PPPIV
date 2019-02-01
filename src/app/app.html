@@ -1,1 +1,27 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" id="menu">
+        <ion-content>
+            <div class="menu-header">
+                <!--material-design-background-->
+                <img class="user-avatar round user-avatar-size" [src]=""/>
+                <p class="name">{{user?.name}}</p>
+                <p class="e-mail">{{user?.email}}</p>
+            </div>
+            <ion-list>
+                <ng-container *ngFor="let p of pages">
+                    <button menuClose="left" ion-item detail-none [class.highlight]="p.active" (click)="openPage(p)" *ngIf="p.canAccess">
+                        <ion-icon [name]="p.icon" item-left></ion-icon>
+                        {{p.title}}
+                    </button>
+                </ng-container>
+            </ion-list>
+        </ion-content>
+        <ion-footer>
+            <ion-list no-lines id="list-footer">
+                <button  ion-item detail-none (click)="logout()">
+                    <ion-icon name="exit" item-left></ion-icon>
+                    Sair
+                </button>
+            </ion-list>
+        </ion-footer>
+    </ion-menu>
+<ion-nav [root]="rootPage" id="nav" #content></ion-nav>

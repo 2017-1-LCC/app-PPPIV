@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Lista de alunos cadastrados</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list *ngFor="let entity of listEntities">
+          <ion-item text-wrap>
+            <ion-avatar item-start>
+                <ion-icon name="contacts" style="font-size: 35px"></ion-icon>
+            </ion-avatar>
+            <h2>{{entity.nomeAluno}}</h2>
+            <h3>{{entity.nomeEscola}}</h3>
+            <p>
+              Disciplina favorita? {{entity.disciplinaPreferida}}
+            </p>
+            <p>
+              Gosta de tecnologia? {{entity.gostaTecnologia}}
+            </p>
+            <p>
+              Conhece o IF? {{entity.conheceLCC}}
+            </p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

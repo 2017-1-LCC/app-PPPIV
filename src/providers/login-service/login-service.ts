@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController, NavController } from 'ionic-angular';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoginServiceProvider {
@@ -13,6 +14,10 @@ export class LoginServiceProvider {
 
   public logout(): Promise<void>{
     return this.authFireService.auth.signOut();
+  }
+
+  public loggedUser() {
+    return this.authFireService.authState
   }
 
   public erromessage(error:any): void{
