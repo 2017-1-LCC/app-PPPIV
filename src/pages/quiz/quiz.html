@@ -14,32 +14,33 @@
 </ion-header>
 
 <ion-content padding>
+    <div text-center>
+        <img id="logo" src="assets/imgs/DESCUBRA O IF LOGO-01.png" alt="">
+      </div>
 
   <form [formGroup]="quizForm" (ngSubmit)="saveQuiz()">
 
     <ion-item text-wrap>
-      <ion-label>Nome</ion-label>
-      <ion-input [(ngModel)]="question.studentName" type="text" name="studentName" formControlName="studentName"></ion-input>
+      <ion-input class="campos" placeholder="Digite seu nome" [(ngModel)]="question.studentName" type="text" name="studentName" formControlName="studentName"></ion-input>
     </ion-item>
 
     <ion-item text-wrap>
-      <ion-label>Escola</ion-label>
-      <ion-input [(ngModel)]="question.schoolName" type="text" name="schoolName" formControlName="schoolName"></ion-input>
+      <ion-input class="campos" placeholder="Digite o nome da sua escola" [(ngModel)]="question.schoolName" type="text" name="schoolName" formControlName="schoolName"></ion-input>
     </ion-item>
 
+    <ion-label>1 - Em qual cidade você nasceu?</ion-label>
     <ion-item text-wrap>
-      <ion-label>1 - Local de Nascimento?</ion-label>
-      <ion-input [(ngModel)]="question.one" type="text" name="onequestion" formControlName="onequestion"></ion-input>
+      <ion-input class="campos" [(ngModel)]="question.one" type="text" name="onequestion" formControlName="onequestion"></ion-input>
     </ion-item>
 
+    <ion-label>2 - Você mora em qual cidade?</ion-label>
     <ion-item text-wrap>
-      <ion-label>2 - Cidade onde Mora?</ion-label>
-      <ion-input [(ngModel)]="question.two" type="text" name="twoquestion" formControlName="twoquestion"></ion-input>
+      <ion-input class="campos" [(ngModel)]="question.two" type="text" name="twoquestion" formControlName="twoquestion"></ion-input>
     </ion-item>
 
+    <ion-label>3 - Qual disciplina você mais gosta?</ion-label>
     <ion-item text-wrap>
-      <ion-label>3 - Qual disciplina você mais gosta?</ion-label>
-      <ion-select [(ngModel)]="question.three" type="text" formControlName="threequestion" name="threequestion"
+      <ion-select class="campos" [(ngModel)]="question.three" type="text" formControlName="threequestion" name="threequestion"
         interface="popover">
         <ion-option value="Português">Português</ion-option>
         <ion-option value="Matemática">Matemática</ion-option>
@@ -50,36 +51,37 @@
       </ion-select>
     </ion-item>
 
+    <ion-label>4 - Gosta de ler?</ion-label>
     <ion-item text-wrap>
-      <ion-label>4 - Gosta de ler?</ion-label>
-      <ion-select [(ngModel)]="question.four" formControlName="fourquestion" name="fourquestion" interface="popover">
+      <ion-select class="campos" [(ngModel)]="question.four" formControlName="fourquestion" name="fourquestion" interface="popover">
         <ion-option value=true>Sim</ion-option>
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
 
-    <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
-
+    <ion-label>5 - Usa redes sociais? Se sim, quais?</ion-label>
     <ion-item text-wrap>
-      <ion-label>facebook</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[0].status" formControlName="fivequestion" color="dark"></ion-checkbox>
+      <ion-label class="redes">Facebook</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[0].status" formControlName="fivequestion" color="primary"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Instagram</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[1].status" formControlName="fivequestion" color="dark"></ion-checkbox>
+      <ion-label class="redes">Instagram</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[1].status" formControlName="fivequestion" color="primary"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>whatsapp</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[2].status" formControlName="fivequestion" color="dark"></ion-checkbox>
+      <ion-label class="redes">Whatsapp</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[2].status" formControlName="fivequestion" color="primary"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Nenhuma</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[3].status" formControlName="fivequestion" color="dark"></ion-checkbox>
+      <ion-label class="redes">Nenhuma</ion-label>
+      <ion-checkbox [(ngModel)]="questionFive[3].status" formControlName="fivequestion" color="primary"></ion-checkbox>
     </ion-item>
 
+    <ion-label>6 - O que você pretende fazer quando<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      terminar o ensino médio?</ion-label>
     <ion-item text-wrap>
-      <ion-label>6 - O que você pretende fazer quando terminar o ensino médio?</ion-label>
-      <ion-select [(ngModel)]="question.six" formControlName="sixquestion" name="sixquestion" interface="popover">
+      <ion-select class="campos" [(ngModel)]="question.six" formControlName="sixquestion" name="sixquestion" interface="popover">
         <ion-option value="Faculdade">Faculdade</ion-option>
         <ion-option value="Tecnico">Curso Técnico</ion-option>
         <ion-option value="Trabalhar">Trabalhar</ion-option>
@@ -87,23 +89,23 @@
       </ion-select>
     </ion-item>
 
+    <ion-label>7 - Você conhece o curso de LCC?</ion-label>
     <ion-item text-wrap>
-      <ion-label>7 - Você conhece o curso de LCC?</ion-label>
-      <ion-select [(ngModel)]="question.seven" formControlName="sevenquestion" name="sevenquestion" interface="popover">
+      <ion-select class="campos" [(ngModel)]="question.seven" formControlName="sevenquestion" name="sevenquestion" interface="popover">
         <ion-option value=true>Sim</ion-option>
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
 
+    <ion-label>8 - Gosta de tecnologia?</ion-label>
     <ion-item text-wrap>
-      <ion-label>8 - Gosta de tecnologia?</ion-label>
-      <ion-select [(ngModel)]="question.eight" formControlName="eightquestion" name="eightquestion" interface="popover">
+      <ion-select class="campos" [(ngModel)]="question.eight" formControlName="eightquestion" name="eightquestion" interface="popover">
         <ion-option value=true>Sim</ion-option>
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
     <div text-center>
-      <button ion-button type="submit" [disabled]="quizForm.invalid">Salvar questionario</button>
+      <button class="botao-finish"ion-button type="submit" [disabled]="quizForm.invalid">FINISH!</button>
     </div>
   </form>
 
