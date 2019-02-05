@@ -1,17 +1,20 @@
 <ion-content padding>
   
+  <div text-center>
+    <img id="logo" src="assets/imgs/DESCUBRA O IF LOGO-01.png" alt="">
+  </div>
+  
   <form id="form" [formGroup]="loginForm" (submit)="login()" novalidate>
     <ion-item>
       <ion-input placeholder="Digite seu e-mail" name="email" formControlName="email" type="email"></ion-input>
     </ion-item>
 
-  
     <ion-item>
       <ion-input placeholder="Digite sua senha" name="password" formControlName="password" type="password"></ion-input>
     </ion-item>
 
     <div col-12 text-center>
-      <button ion-button full color="primary" type="submit">Entrar</button>
+      <button class="botao-star" ion-button full color="secondary" type="submit">START</button>
     </div>
   </form>
 
