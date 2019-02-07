@@ -1,12 +1,15 @@
 @font-face { font-family: 'roboto-light'; src:url('../assets/fonts/Roboto-Light.ttf') format('truetype'); }
 
-#form ion-input, #form ion-select { border: thin solid #d2d3d4; width: 100%; border-radius: 50px; height: 30px; background-color: #fff; }
-#form ion-input input { margin: 6px 8px; font-family: roboto-light; }
+#form ion-input, #form ion-select { border: thin solid #d2d3d4; width: 100%; border-radius: 0.6em; height: 2.2em; background-color: #fff; }
+#form ion-input input { margin: 0.5em 0.5em; font-family: roboto-light; }
 #form ion-select { max-width: 100%; padding: 0; padding-left: 7px; padding-top: 4px; font-family: roboto-light;}
 #form ion-select .select-icon { width: 25px; height: 21px;}
 #form ion-item { padding-left: 5px; background-color: transparent; }
 #form ion-item .item-inner { padding-right: 5px; }
 #form .item .item-inner { border-bottom: none !important; box-shadow: none !important; }
+#form button{width: 50%; border-radius: 0.6em; height: 2.5em; margin-left: 5em;}
+#logo{width: 80%; margin: 0 0em 1em 0em;}
+#logo-side-menu{width: 80%; margin-left: 1.5em;}
 
 #menu {
     .menu-header { 

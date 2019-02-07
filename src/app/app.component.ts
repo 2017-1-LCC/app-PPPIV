@@ -67,8 +67,8 @@ export class MyApp {
 
   private loadMenu() {
     this.pages = [
-      { title:'Lista de Questionários', component:'ListaPage', active: true, icon:'home', canAccess:true },
-      { title:'Novo Questionários', component:'QuizPage', active: true, icon:'home', canAccess:true }
+      { title:'Lista de alunos', component:'ListaPage', active: true, icon:'list', canAccess:true },
+      { title:'Novo questionários', component:'QuizPage', active: true, icon:'add', canAccess:true }
     ]
   }
 
