@@ -58,23 +58,14 @@
       </ion-select>
     </ion-item>
 
-    <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
-
     <ion-item text-wrap>
-      <ion-label>facebook</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[0].status" formControlName="fivequestion" color="dark"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Instagram</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[1].status" formControlName="fivequestion" color="dark"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>whatsapp</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[2].status" formControlName="fivequestion" color="dark"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Nenhuma</ion-label>
-      <ion-checkbox [(ngModel)]="questionFive[3].status" formControlName="fivequestion" color="dark"></ion-checkbox>
+      <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
+      <ion-select [(ngModel)]="question.five" formControlName="fivequestion" multiple="true" cancelText="Cancelar" okText="ok" >
+        <ion-option value="Facebook">Facebook</ion-option>
+        <ion-option value="Instagram">Instagram</ion-option>
+        <ion-option value="whatsapp">whatsapp</ion-option>
+        <ion-option value="Nenhuma">Nenhuma</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item text-wrap>

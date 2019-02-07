@@ -13,7 +13,6 @@ import { Loading } from "../../providers/util/loading";
 export class QuizPage {
   private question: any = {};
   private quizForm: FormGroup;
-  private questionFive = [];
   private userUid:String;
 
   constructor(
@@ -40,13 +39,6 @@ export class QuizPage {
       schoolName:["",[Validators.required]]
     });
 
-    this.questionFive = [
-    { name:"facebook", status: false },
-    { name:"Instagram", status: false },
-    { name:"Whatsapp", status: false},
-    { name:"Nenhuma", status: false }
-    ];
-
     this.loginServiceProvider.loggedUser()
       .subscribe(user => {
         if(user) {
@@ -58,7 +50,6 @@ export class QuizPage {
 
   public saveQuiz() {
     this.question.user = this.userUid;
-    this.question.five = this.questionFive;
     this.quizServiceProvider.save(this.question);
     this.loginServiceProvider.toastCall("Dados Salvos Com Sucesso", "middle");
     this.quizForm.reset();
