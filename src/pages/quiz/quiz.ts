@@ -35,8 +35,11 @@ export class QuizPage {
       sixquestion: ["", [Validators.required]],
       sevenquestion: ["", [Validators.required]],
       eightquestion: ["", [Validators.required]],
-      studentName:["",[Validators.required]],
-      schoolName:["",[Validators.required]]
+      studentSex: ["", [Validators.required]],
+      studentBirthday: ["", [Validators.required]],
+      studentName: ["",[Validators.required]],
+      schoolName: ["",[Validators.required]],
+      studentEmail: ["", [Validators.required]]
     });
 
     this.loginServiceProvider.loggedUser()
