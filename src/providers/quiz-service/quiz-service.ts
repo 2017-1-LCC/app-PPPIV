@@ -3,9 +3,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Quiz{
-  uid:string;
-  nascimento: string;
+  localNascimento: string;
   mora: string;
+  nascimento: string;
+  sexo: string;
+  email: string;
   disciplinaPreferida: string;
   gostaLer: boolean;
   redeSocial: string;
@@ -28,10 +30,8 @@ export class QuizServiceProvider {
   }
   
   public save( question:any ) { 
-    const quizId = this.afStore.createId();
     const quizAdd: Quiz = {
-      uid: quizId,
-      nascimento: question.one,
+      localNascimento: question.one,
       mora: question.two,
       disciplinaPreferida: question.three,
       gostaLer: question.four,
@@ -39,9 +39,12 @@ export class QuizServiceProvider {
       planosFuturos: question.six,
       conheceLCC: question.seven,
       gostaTecnologia: question.eight,
+      nascimento: question.studentBirthday,
+      sexo: question.studentSex,
       nomeAluno: question.studentName,
       nomeEscola:question.schoolName,
-      userUid: question.user
+      userUid: question.user,
+      email: question.studentEmail
     };
     
     return this.afStore.collection<any>('quiz')

@@ -20,7 +20,7 @@ export class ListaPage {
     public loginService: LoginServiceProvider,
     public loading: Loading) {
 
-      this.loading.show();
+     // this.loading.show();
 
       this.loginService.loggedUser()
         .subscribe(user => {
@@ -28,10 +28,10 @@ export class ListaPage {
             this.quizService.list(user.uid)
               .subscribe(list => {
                 this.listEntities = list
-                this.loading.hide();
+               // this.loading.hide();
               })
           }else {
-            this.loading.hide();
+           // this.loading.hide();
           }
         })
   }

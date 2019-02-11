@@ -25,7 +25,29 @@
     </ion-item>
 
     <ion-item text-wrap>
-      <ion-input class="campos" placeholder="Digite o nome da sua escola" [(ngModel)]="question.schoolName" type="text" name="schoolName" formControlName="schoolName"></ion-input>
+      <ion-input class="campos" placeholder="Digite seu email" [(ngModel)]="question.studentEmail" type="text" name="studentEmail" formControlName="studentEmail"></ion-input>
+    </ion-item>
+
+    <ion-label>sexo ?</ion-label>
+    <ion-item text-wrap>
+      <ion-select class="campos" [(ngModel)]="question.studentSex" formControlName="studentSex" name="studentSex" interface="popover">
+        <ion-option value="Masculino">Masculino</ion-option>
+        <ion-option value="Feminino">Feminino</ion-option>
+        <ion-option value="Outros">Outros</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-label>Nascimento ?</ion-label>
+    <ion-item>  
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="question.studentBirthday" formControlName="studentBirthday" name="studentBirthday"></ion-datetime>
+    </ion-item>
+
+    <ion-label>Digite o nome da sua escola</ion-label>
+    <ion-item text-wrap>
+      <ion-select class="campos" [(ngModel)]="question.schoolName" formControlName="schoolName" name="schoolName" interface="popover">
+        <ion-option value="Estadual">Colégio Estadual Senhor do Bonfim</ion-option>
+        <ion-option value="Modelo"> Colegio Modelo Luis Eduardo Magalhaes</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-label>1 - Em qual cidade você nasceu?</ion-label>
@@ -35,7 +57,17 @@
 
     <ion-label>2 - Você mora em qual cidade?</ion-label>
     <ion-item text-wrap>
-      <ion-input class="campos" [(ngModel)]="question.two" type="text" name="twoquestion" formControlName="twoquestion"></ion-input>
+      <ion-select class="campos" [(ngModel)]="question.two" type="text" formControlName="twoquestion" name="twoquestion"
+        interface="popover">
+        <ion-option value="Senhor do Bonfim">Senhor do Bonfim</ion-option>
+        <ion-option value="Povoados">Povoados de Senhor do Bonfim</ion-option>
+        <ion-option value="Andorinha">Andorinha</ion-option>
+        <ion-option value="Antônio Gonçalves">Antônio Gonçalves</ion-option>
+        <ion-option value="Campo Formoso">Campo Formoso</ion-option> 
+        <ion-option value="Filadélfia">Filadélfia</ion-option>  
+        <ion-option value="itiúba">itiúba</ion-option>
+        <ion-option value="Jaguarari">Jaguarari</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-label>3 - Qual disciplina você mais gosta?</ion-label>
@@ -97,9 +129,12 @@
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
+
     <div text-center>
       <button class="botao-finish"ion-button type="submit" [disabled]="quizForm.invalid">FINISH!</button>
     </div>
   </form>
+
+  <img class="logo-if" src="assets/imgs/IF LOGO-01.png" alt="Logo do IF Baiano">
 
 </ion-content>
