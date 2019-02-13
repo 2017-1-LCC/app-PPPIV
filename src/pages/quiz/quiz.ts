@@ -38,7 +38,6 @@ export class QuizPage {
       studentSex: ["", [Validators.required]],
       studentBirthday: ["", [Validators.required]],
       studentName: ["",[Validators.required]],
-      schoolName: ["",[Validators.required]],
       studentEmail: ["", [Validators.required]]
     });
 

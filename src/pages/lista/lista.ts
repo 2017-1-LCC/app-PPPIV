@@ -36,8 +36,4 @@ export class ListaPage {
         })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaPage');
-  }
-
 }
