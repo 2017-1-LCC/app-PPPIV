@@ -3,8 +3,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Quiz{
-  uid:string;
+  uid: string;
+  userUid:string;
+  nomeAluno:string;
+  email: string;
+  sexo: string;
   nascimento: string;
+  localNascimento: string;
   mora: string;
   disciplinaPreferida: string;
   gostaLer: boolean;
@@ -12,9 +17,8 @@ export interface Quiz{
   planosFuturos: string;
   conheceLCC: boolean;
   gostaTecnologia: boolean;
-  nomeAluno:string;
-  nomeEscola:string;
-  userUid:string;
+  
+  
 }
 
 @Injectable()
@@ -28,24 +32,26 @@ export class QuizServiceProvider {
   }
   
   public save( question:any ) { 
-    const quizId = this.afStore.createId();
-    const quizAdd: Quiz = {
-      uid: quizId,
-      nascimento: question.one,
+    let uidQuiz: string = this.afStore.createId();
+    let ref = this.afStore.collection('quiz').doc(uidQuiz);
+    let quizAdd: Quiz = {
+      uid: uidQuiz,
+      userUid: question.user,
+      nomeAluno: question.studentName,
+      email: question.studentEmail,
+      nascimento: question.studentBirthday,
+      sexo: question.studentSex, 
+      localNascimento: question.one,
       mora: question.two,
       disciplinaPreferida: question.three,
       gostaLer: question.four,
       redeSocial: question.five,
       planosFuturos: question.six,
       conheceLCC: question.seven,
-      gostaTecnologia: question.eight,
-      nomeAluno: question.studentName,
-      nomeEscola:question.schoolName,
-      userUid: question.user
+      gostaTecnologia: question.eight 
     };
     
-    return this.afStore.collection<any>('quiz')
-      .add(quizAdd)
+    return ref.set(quizAdd);
   }
 
   public list(uid) {

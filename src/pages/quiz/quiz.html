@@ -19,23 +19,69 @@
       </div>
 
   <form [formGroup]="quizForm" (ngSubmit)="saveQuiz()">
-
+    
+    <ion-label>Qual o seu nome?</ion-label>
     <ion-item text-wrap>
-      <ion-input class="campos" placeholder="Digite seu nome" [(ngModel)]="question.studentName" type="text" name="studentName" formControlName="studentName"></ion-input>
+      <ion-input class="campos" [(ngModel)]="question.studentName" type="text" name="studentName" formControlName="studentName"></ion-input>
+    </ion-item>
+    
+    <ion-label>Qual o seu email?</ion-label>
+    <ion-item text-wrap>
+      <ion-input class="campos" [(ngModel)]="question.studentEmail" type="text" name="studentEmail" formControlName="studentEmail"></ion-input>
     </ion-item>
 
+    <ion-label>Qual o seu sexo?</ion-label>
     <ion-item text-wrap>
-      <ion-input class="campos" placeholder="Digite o nome da sua escola" [(ngModel)]="question.schoolName" type="text" name="schoolName" formControlName="schoolName"></ion-input>
+      <ion-select class="campos" [(ngModel)]="question.studentSex" formControlName="studentSex" name="studentSex" interface="popover">
+        <ion-option value="Masculino">Masculino</ion-option>
+        <ion-option value="Feminino">Feminino</ion-option>
+        <ion-option value="Outros">Outros</ion-option>
+      </ion-select>
     </ion-item>
+
+    <ion-label>Qual a data do seu nascimento?</ion-label>
+    <ion-item>  
+      <ion-input type="date" greater-eighteen [(ngModel)]="question.studentBirthday" formControlName="studentBirthday" name="studentBirthday"></ion-input>
+    </ion-item>
+    
 
     <ion-label>1 - Em qual cidade você nasceu?</ion-label>
     <ion-item text-wrap>
-      <ion-input class="campos" [(ngModel)]="question.one" type="text" name="onequestion" formControlName="onequestion"></ion-input>
+      <ion-select class="campos" [(ngModel)]="question.one" type="text" name="onequestion" formControlName="onequestion" 
+      interface="popover">
+        <ion-option value="Senhor do Bonfim">Senhor do Bonfim</ion-option>
+        <ion-option value="Antônio Gonçalves">Antônio Gonçalves</ion-option>
+        <ion-option value="Caém">Caém</ion-option>
+        <ion-option value="Campo Formoso">Campo Formoso</ion-option> 
+        <ion-option value="Capim Grosso">Capim Grosso</ion-option>
+        <ion-option value="Feira de Santana">Feira de Santana</ion-option>
+        <ion-option value="Filadélfia">Filadélfia</ion-option>  
+        <ion-option value="Jacobina">Jacobina</ion-option>
+        <ion-option value="jaguarari">Jaguarari</ion-option>
+        <ion-option value="Juazeiro">Juazeiro</ion-option>
+        <ion-option value="Petrolina">Petrolina</ion-option>
+        <ion-option value="Salvador">Salvador</ion-option>
+        <ion-option value="Saúde">Saúde</ion-option>
+        <ion-option value="Outra">Outra</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-label>2 - Você mora em qual cidade?</ion-label>
     <ion-item text-wrap>
-      <ion-input class="campos" [(ngModel)]="question.two" type="text" name="twoquestion" formControlName="twoquestion"></ion-input>
+      <ion-select class="campos" [(ngModel)]="question.two" type="text" formControlName="twoquestion" name="twoquestion"
+        interface="popover">
+        <ion-option value="Senhor do Bonfim">Senhor do Bonfim</ion-option>
+        <ion-option value="Andorinha">Andorinha</ion-option>
+        <ion-option value="Antônio Gonçalves">Antônio Gonçalves</ion-option>
+        <ion-option value="Campo Formoso">Campo Formoso</ion-option> 
+        <ion-option value="Filadélfia">Filadélfia</ion-option>
+        <ion-option value="jaguarari">Jaguarari</ion-option>  
+        <ion-option value="itiúba">Itiúba</ion-option>
+        <ion-option value="Povoado de Carrapichel">Povoado de Carrapichel</ion-option>
+        <ion-option value="Povoado de Igara">Povoado de Igara</ion-option>
+        <ion-option value="Povoado de Tijuaçu">Povoado de Tijuaçu</ion-option>
+        <ion-option value="Outra">Outra</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-label>3 - Qual disciplina você mais gosta?</ion-label>
@@ -59,13 +105,13 @@
       </ion-select>
     </ion-item>
 
+    <ion-label>5 - Usa redes sociais? Se sim, quais?</ion-label>
     <ion-item text-wrap>
-      <ion-label>5 - Usa redes sociais? se sim quais?</ion-label>
       <ion-select [(ngModel)]="question.five" formControlName="fivequestion" multiple="true" cancelText="Cancelar" okText="ok" >
         <ion-option value="Facebook">Facebook</ion-option>
         <ion-option value="Instagram">Instagram</ion-option>
-        <ion-option value="whatsapp">whatsapp</ion-option>
-        <ion-option value="Nenhuma">Nenhuma</ion-option>
+        <ion-option value="whatsapp">Whatsapp</ion-option>
+        <ion-option value="Nenhuma" >Nenhuma</ion-option>
       </ion-select>
 
     </ion-item>
@@ -97,9 +143,12 @@
         <ion-option value=false>Não</ion-option>
       </ion-select>
     </ion-item>
+
     <div text-center>
       <button class="botao-finish"ion-button type="submit" [disabled]="quizForm.invalid">FINISH!</button>
     </div>
   </form>
+
+  <img class="logo-if" src="assets/imgs/IF LOGO-01.png" alt="Logo do IF Baiano">
 
 </ion-content>
